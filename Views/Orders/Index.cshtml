@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Orders>
+<h2>Orders</h2>
+<table class="table table-hover">
+    <tr><th>Order Date</th><th>Total Price</th></tr>
+    @foreach(var order in Model) {
+        <tr>
+            <td>@order.OrderDate</td>
+            <td>@order.TotalPrice</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Products>
+<h2>Products</h2>
+<input type="text" placeholder="Search..." class="form-control mb-3" id="searchBox">
+<table class="table table-striped">
+    <tr><th>Name</th><th>Category</th><th>Price</th><th>Quantity</th></tr>
+    @foreach(var product in Model) {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Category.Name</td>
+            <td>@product.Price</td>
+            <td>@product.Quantity</td>
+        </tr>
+    }
+</table>
