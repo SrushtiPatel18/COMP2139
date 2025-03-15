@@ -1,0 +1,25 @@
+﻿@model COMP2139_Lab02.Areas.ProjectManagement.Models.ProjectTask
+@{
+    ViewBag.Title = "Project Details";
+    Layout = "_Layout";
+}
+
+<h2>Project Details</h2>
+<div class="card">
+    <div class="card-body">
+        <h3 class ="class title">@Model.Title</h3>
+        <p class = "card-text">@Model.Description</p>
+        <!-- display other properties of the project as needed/desired -->
+        <dl class="row">
+            <dt class ="col-sm-3">ProjectTask Id</dt>
+            <dd class ="col-sm-9">@Model.ProjectTaskId</dd>
+
+            <dt class ="col-sm-3">Project Id</dt>
+            <dd class ="col-sm-9">@Model.ProjectId</dd>
+          
+        </dl>
+        <a  asp-action="Edit" asp-route-id ="@Model.ProjectId" class="btn btn-primary">Edit</a>
+        <a  asp-action ="Index" class="btn btn-warning">Cancel</a>
+        
+    </div>
+</div>

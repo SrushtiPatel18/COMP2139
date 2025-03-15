@@ -1,0 +1,71 @@
+﻿@*Indicates that the view expects a list of Projects as its model*@
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model List<COMP2139_Lab02.Areas.ProjectManagement.Models.Project>
+
+
+@{
+    //razor block
+    ViewBag.Title = "Index";
+    Layout = "_Layout";
+
+
+
+    bool searchPerformed = ViewData["SearchPerformed"] as bool? ?? false;
+    string searchString = ViewData["SearchString"] as string;
+}
+
+<h2>Projects</h2>
+
+<a asp-action="Create" class="btn btn-primary">Create New Project</a>
+@if (Model.Any())
+{
+    //Iterate 
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Project Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Summary</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.ProjectId</td>
+                <td><p>@Html.DisplayFor(model =>project.Name, "ProjectName")</p></td>
+                <td><p>@Html.DisplayFor(model =>project.Description, "ProjectDescription")</p></td>
+                
+                <td>
+                    @await Component.InvokeAsync("ProjectSummary",new{projectId = project.ProjectId})
+                </td>
+                
+                <td>
+                    <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@project.ProjectId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+
+        }
+        </tbody>
+    </table>
+
+}
+else
+{
+    if (searchPerformed)
+    {
+        <p>No projects available with name "@searchString" were found</p>
+
+    }
+    else
+    {
+        <p>No projects available</p>
+
+    }
+
+}
