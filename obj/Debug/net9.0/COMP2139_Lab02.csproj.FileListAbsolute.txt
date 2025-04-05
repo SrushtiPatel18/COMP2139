@@ -513,3 +513,4 @@ C:\Users\srush\OneDrive\Desktop\COMP2139-main\obj\Debug\net9.0\refint\COMP2139_L
 C:\Users\srush\OneDrive\Desktop\COMP2139-main\obj\Debug\net9.0\COMP2139_Lab02.pdb
 C:\Users\srush\OneDrive\Desktop\COMP2139-main\obj\Debug\net9.0\COMP2139_Lab02.genruntimeconfig.cache
 C:\Users\srush\OneDrive\Desktop\COMP2139-main\obj\Debug\net9.0\ref\COMP2139_Lab02.dll
+C:\Users\srush\OneDrive\Desktop\COMP2139-main\obj\Debug\net9.0\COMP2139_Lab02.sourcelink.json
